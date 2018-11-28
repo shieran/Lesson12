@@ -15,6 +15,16 @@ public class Person {
         return id == p.id && (firstName == p.firstName || (firstName != null && firstName.equals(p.firstName)) && (lastName==p.lastName) || (lastName!= null && lastName.equals(p.lastName)));
     }
 
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        return result;
+    }
+
+
+
     public Person(int id, String firstName, String lastName) {
         this.id = id;
         this.firstName = firstName;
